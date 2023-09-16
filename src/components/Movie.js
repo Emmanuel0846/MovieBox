@@ -9,12 +9,12 @@ const Movie = ({ movie }) => {
 
   return (
     <Link to={`/movies/${movie.id}`} className={"movie"}>
-      <div className="movie-title">
+      <div className="movie-title" data-testid="movie-card">
         {movie.poster_path && (
           <img src={IMAGE_PATH + movie.poster_path} alt={movie.title} />
         )}
         <div className={"flex between movie-infos"}>
-          <h5 className={"movie-title"}>{movie.title}</h5>
+          <h5 className={"movie-title"} data-testid="movie-title">{movie.title}</h5>
           <img src={love} alt='love-logo' className='love' />
           <p data-testid="movie-release-date" className="movie-release-date">{movie.release_date}</p>
           <div className='card'>
@@ -22,7 +22,7 @@ const Movie = ({ movie }) => {
             {movie.vote_average ? <span className={"movie-voting-card"}>{Math.round(movie.vote_average * 10)}/100</span> : null}
 
             <img src={tomato} alt='tomato-logo' className='tomato-card' />
-            {movie.vote_average ? <span className={"tomato-voting-card"}>{Math.round(movie.vote_average * 10)+5}%</span> : null}
+            {movie.vote_average ? <span className={"tomato-voting-card"} data-testid="movie-rating">{Math.round(movie.vote_average * 10)+5}%</span> : null}
           </div>
           {movie.genres ? movie.genres.join(", ") : ''}
         </div>
