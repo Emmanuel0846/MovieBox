@@ -159,21 +159,21 @@ function MovieDetails() {
 
           <div className="content-details">
             <div className="flex-flex">
-              <h3>{movie.title}</h3> <h3>&#183;</h3>
+              <h3 data-testid="movie-title">{movie.title}</h3> <h3>&#183;</h3>
               <h3 data-testid="movie-release-date">{movie.release_date}</h3> <h3>&#183;</h3>
               <h3 data-testid="movie-runtime">{movie.runtime} minutes</h3><h3>&#183;</h3>
               <h3 data-testid="movie-genre">{movie.genres ? movie.genres.join(", ") : ''}</h3>
               <img src={tomato} alt='tomato-logo' className='tomato-details' />
-              {movie.vote_average ? <span className={"tomato-voting"}>{Math.round(movie.vote_average * 10)+5}%</span> : null}
+              {movie.vote_average ? <span data-testid="movie-rating" className={"tomato-voting"}>{Math.round(movie.vote_average * 10)+5}%</span> : null}
             </div>
             <div className="flex2">
               <div className="column1">
                 <p>{movie.overview}</p>
-                <p>Director:<span className="red-pink">{movie.director}</span></p>
+                <p>Director:<span className="red-pink" data-testid="movie-director" >{movie.director}</span></p>
                 <p data-testid="movie-stars">Stars:<span className="red-pink">{movie.stars}</span></p>
 
                 <div className="award">
-                  {movie.vote_average ? <span className={"top-rating"}>Top rated movie #{Math.round(movie.vote_average * 10)+5}</span> : null}
+                  {movie.vote_average ? <span data-testid="movie-rating" className={"top-rating"}>Top rated movie #{Math.round(movie.vote_average * 10)+5}</span> : null}
                   <p className="nomination">Award {Math.round(Math.random()*10)+10} nominations</p>
                 </div>
               </div> 
