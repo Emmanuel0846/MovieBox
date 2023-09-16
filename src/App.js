@@ -159,7 +159,7 @@ function App() {
                       </> :
                       <div className="center-max-size">
                         <div className="poster-content">
-                          <h1>{movie.title}</h1>
+                          <h1 data-testid="movie-title">{movie.title}</h1>
                           <p data-testid="movie-release-date">Release Date: {movie.release_date}</p>
                           <p data-testid="movie-runtime">Runtime: {movie.runtime} minutes</p>
                           <div>
@@ -167,11 +167,11 @@ function App() {
                             {movie.vote_average ? <span className={"movie-voting"}>{Math.round(movie.vote_average * 10)}/100</span> : null}
 
                             <img src={tomato} alt='tomato-logo' className='tomato' />
-                            {movie.vote_average ? <span className={"tomato-voting"}>{Math.round(movie.vote_average * 10)+5}%</span> : null}
+                            {movie.vote_average ? <span className={"tomato-voting"} data-testid="movie-rating">{Math.round(movie.vote_average * 10)+5}%</span> : null}
                           </div>
                           
-                          <p>{movie.overview}</p>
-                          <p>Director: {movie.director}</p>
+                          <p data-testid="movie-overview">{movie.overview}</p>
+                          <p data-testid="movie-director">Director: {movie.director}</p>
                             {trailer ?
                             <button className={"button play-video"} onClick={() => setPlaying(true)}
                               type="button"> <span className="play">&#9654;</span> &nbsp; <strong>WATCH
@@ -197,13 +197,13 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <header className="center-max-size header">
-          <Link to="/" className={"brand"}>  <img src={logo} alt='brand-logo' className='brand' /></Link>
+          <Link to="/">  <img src={logo} alt='brand-logo' className='brand' /></Link>
           <form className="form" onSubmit={fetchMovies}>
             <input placeholder="What do you want to watch?" className="search" type="text" id="search"
             value={searchKey} onInput={(event) => setSearchKey(event.target.value)} />
             <button className="submit-search" type="submit"><i className="fa fa.search"></i></button>
           </form>
-          <Link to="/" className="sign-in">Sign in <img src={menu} alt='menu-logo' className='menu' /></Link>
+          <Link to="./" className="sign-in">Sign in <img src={menu} alt='menu-logo' className='menu' /></Link>
         </header>
 
         <footer className="footer">
