@@ -263,7 +263,7 @@ h2 {
 .love {
   position: absolute;
   right: 7px;
-  top: 20px;
+  top: 40px;
   padding: 5px 10px;
   font-size: 12px;
   border-radius: 25px;
@@ -304,6 +304,16 @@ h2 {
 .play-trailer {
   height: 100px;
   opacity: 0.5;
+}
+
+@media screen and (max-width: 750px) {
+  .play-btn {
+    transform: scale(0.7);
+  }
+
+  .play-trailer {
+    transform: scale(0.7);
+  }
 }
 
 .container-details {
